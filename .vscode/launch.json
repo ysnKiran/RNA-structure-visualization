@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/ysnk/Desktop/daa_ass/RNA-structure-visualization",
+      "program": "/Users/ysnk/Desktop/daa_ass/RNA-structure-visualization/build/Debug/outDebug"
+    }
+  ]
+}
