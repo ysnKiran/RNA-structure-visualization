@@ -142,15 +142,11 @@
         <div class="navbar">
 
             <a class="q" href="#question0">
-                Overview
+                Problem Statement
             </a>
 
             <a class="q" href="#ford-fulkerson">
-                Jarvis March Algorithm
-            </a>
-
-            <a class="q" href="#question2">
-                KirkPatrick Seidel Algorithm
+                Dynamic Programming Approach
             </a>
 
             <a class="q" href="#question3">
@@ -158,7 +154,7 @@
             </a>
 
             <a class="q" href="#question5">
-                Inferences
+                Conclusion
             </a>
         </div>
 
@@ -166,81 +162,64 @@
 
             <div id="question0" class="question">
 
-                <h2>Overview</h2>
+                <h2>Problem Statement</h2>
 
                 <p>
-                    We made use of the Jarvis March Algorithm along with the KirkPatrick Seidel Algorithm to compute the Convex hull of a set of points. The project contains a graphical visualization of the working of the computation, along with a canvas to input points into.<br><br>
-                    The algorithms are written in vanilla javascript an excellent choice for web applications and is well documented with the help of Doxygen pages.
+                    The aim of the problem is to obtain a secondary structure of maximum energy (The energy of a secondary structure is proportional to the number of base
+pairs in it) from a given RNA sequence while following the given <a href="#rules">rules</a>.</p>
+
+<p> The pairing of bases are as follows </p>
+
+<p> <strong>A</strong>denine always matches with <strong>U</strong>racil. </p>
+
+<p> <strong>C</strong>ytosine always matches with <strong>G</strong>uanine. </p>
+
                     <br><br>
                 </p>
 
                 <h3>
-                    Link to documentation page- <a href="./out/index.html">Documentation page</a>
+                    Link to documentation page- <a href="./html/index.html">Documentation page</a>
                 </h3>
             </div>
 
             <div id="ford-fulkerson" class="question">
-                <h2>Jarvis March Algorithm</h2>
-                <p>The Jarvis March algorithm, also known as the Gift Wrapping algorithm, is a computational geometry method used to find the convex hull of a set of points. The convex hull can be thought of as the smallest convex polygon that encompasses all the points in the set.
-<br><br>
-The algorithm begins by identifying the leftmost point, or the point with the smallest x-coordinate, and designates it as the current point. This is the starting point for the algorithm.
-<br><br>
-Next, the algorithm searches through all the remaining points to find the one that is most counterclockwise to the current point. This is achieved by comparing the orientation of triples of points. The point found to be the most counterclockwise is then set as the current point.
-<br><br>
-This process is repeated, with the algorithm continuously finding the most counterclockwise point from the current point, until it eventually returns to the starting point. At this stage, the algorithm has successfully computed the convex hull.
-<br><br>
-In terms of time complexity, the Jarvis March algorithm operates at O(nh), where 'n' represents the number of points and 'h' represents the number of points on the convex hull. This makes it less efficient than other convex hull algorithms, particularly when dealing with larger inputs. However, the Jarvis March algorithm can be simpler to understand and implement, making it a popular choice in certain scenarios.
-
-
+                <h2>Dynamic programming approach</h2>
+                
+                <p>Using the Dynamic Programming Approach, we consider the entire problem made up of smaller sub-problems that can be recursively solved. Here, a subproblem is defined as finding the maximum number of base pairings for a particular subsequence.</p>
+<p>OPT(i,j) is the maximum number of base pairs in a secondary structure. Hence, the solution for the problem is OPT(1,n), where n is the length of the RNA sequence.</p>
+<img src="ex1.png" alt="Jarvis March" style="width: 50vw; height: auto;">
+<img src="ex2.png" alt="Jarvis March" style="width: 50vw; height: auto;">
+<img src="ex3.png" alt="Jarvis March" style="width: 50vw; height: auto;">
+<img src="ex4.png" alt="Jarvis March" style="width: 50vw; height: auto;">
+<img src="ex5.png" alt="Jarvis March" style="width: 50vw; height: auto;">
                 
                 </p>
             </div>
-            <div id="question2" class="question">
-
-                <h2>KirkPatrick Seidel Algorithm</h2>
-
-                The Kirkpatrick-Seidel algorithm, also known as the ultimate planar convex hull algorithm, is a divide-and-conquer approach to compute the convex hull of a set of points in a plane. The convex hull is the smallest convex polygon that encompasses all the points.
-<br><br>
-The algorithm starts by identifying the points with the smallest and largest x-coordinates, which are guaranteed to be part of the convex hull. These points divide the remaining points into two sets: those that are above the line connecting the two points (upper hull) and those that are below (lower hull).
-<br><br>
-The algorithm then applies a "prune-and-search" technique, a variant of the median-finding algorithm. For each set of points (upper and lower hull), the algorithm finds the point that forms the maximum area triangle with the line segment as the base. This point is also part of the convex hull.
-<br><br>
-The process is then recursively applied to the points that are left of this point and above the line (for the upper hull), and to the points that are right of this point and below the line (for the lower hull). This divide-and-conquer approach continues until all points on the convex hull are identified.
-<br><br>
-The Kirkpatrick–Seidel algorithm has a worst-case time complexity of O(n log h), where 'n' is the number of points and 'h' is the number of points on the convex hull. This makes it more efficient than other convex hull algorithms such as the Gift Wrapping algorithm for larger inputs, but it is more complex to understand and implement.
-            </div>
+            
             <div id="question3" class="question">
 
                 <h2>Graph Analysis</h2>
-                The algorithms were run on 8 different random points dataset comprising of 10, 100, 1000, 10000, 100000, 1000000, 10000000, 20000000 points. Every dataset was run 10 times and the average times were noted to account for accuracy and incosistency.
                 <br><br>
-                <h3> Jarvis March Algorithm </h3>
-                <img src="images/jmp.png" alt="Jarvis March">
+                From the above plot, it can be seen that the actual time taken t can be approximated by the curve t = n^3/400000, which is indeed O(n^3).
                 <br><br>
-                <img src="images/jm.png" alt="Jarvis March">
+                <img src="timing/timing_analysis.png" alt="Jarvis March">
                 <br><br>
-                <h3> KirkPatrick Seidel Algorithm </h3>
-                <img src="images/kpsp.png" alt="KPS algo">
-                <br><br>
-                <img src="images/kps.png" alt="KPS algo">   
-                <h3> Comparison </h3>
-                <img src="images/cmp.png" alt="KPS algo">             
+                         
             </div>
          <div id="question5" class="question">
 
-                <h2>Inferences</h2>
+                <h2>Conclusion</h2>
                 
-                As described in the paper "On the ultimate convex hull algorithm in practice" by MM McQueen and GT Toussaint, The results suggest that although the O(n Log h) algorithms may be the ‘ultimate’ ones in theory, they are of little practical value from the point of view of running time. This is seen in our case as well where Jarvis March algorithm(O(nh)) although being very bad in theory as compared to KPS algorithm(O(nlogh)), still outperforms it practically. This is supposedly due to the large time costant associated with the KPS algorithm. 
+                We see that using the recurrence relation, the complexity of the algorithm is exponential, however, when we use memoization to store the results of previously computed sub-problems, we see that the time complexity is reduced to polynomial time O(n^3), at the cost of O(n^2) space.
                 
                 <br><br>
-                
-                Ref: McQUEEN, M. M., & Toussaint, G. T. (1985). On the ultimate convex hull algorithm in practice. Pattern Recognition Letters, 3(1), 29-34.
+           
                 
           </div>
       
             <div class="footer">
 
-                <a href="./out/index.html">Documentation page</a>
+                <a href="./html/index.html">Documentation page</a>
             </div>
         </div>
     </div>
