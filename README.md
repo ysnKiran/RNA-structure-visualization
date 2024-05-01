@@ -9,4 +9,4 @@ the data.txt has the information required for visualization
 
 
 https://github.com/S-Ruban/cs-f364-assignments/blob/main/Assignment%202/README.md#problem-statement
-follow this repo for more details of the assignment
+follow this repo for more details of the assignment and implementation
