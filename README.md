@@ -1,1 +1,1 @@
-There are 2 files, rna.c and daa.c, both have c implementation of the algorithm
+run the C file and input the sequence
